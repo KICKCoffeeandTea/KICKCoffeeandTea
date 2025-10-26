@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KICK</title>
+  <link rel="icon" type="image/x-icon" href="KICKLogo.png">
+
+  <style>
+  /* background */
+   body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: 
+    linear-gradient(to bottom, rgba(245,225,193,0.2) 60%, rgba(245,225,193,1) 100%),
+    url("hallway1.webp"),
+    url("WarmCream.png");
+  background-size: cover;
+  background-position: center top, center top, center; 
+  background-repeat: no-repeat, no-repeat, repeat;
+}
+
+/* Title */
+h1 {
+  margin: 5% 0 0 0;
+  font-size: clamp(2rem, 8vw, 6rem); /* scales text */
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #077655;
+  -webkit-text-stroke: 1.25px #5b3a29;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+  line-height: 1.2;
+}
+
+/* Logo circle */
+.circle-logo {
+  width: clamp(80px, 12vw, 160px);
+  height: clamp(80px, 12vw, 160px);
+  border: 3px solid #5b3a29;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2.5%;
+  vertical-align: middle;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3); 
+}
+
+.circle-logo img {
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation */
+nav {
+  background-color: #077655;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+nav a {
+  color: white;
+  margin: 0 8rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: #F5E1C1;
+  text-shadow: 0 0 8px rgba(245,225,193,0.8);
+}
+
+/* Tagline */
+.tagline {
+  margin: 5% 0 0 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Perpetua', serif;
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  color: white;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+  padding: 0 5%;
+}
+
+/* Menu link */
+.Menu {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  font-family: 'Perpetua', serif;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  color: #5b3a29;
+}
+
+/* ----------------------------
+   📱 Media Queries for Small Screens
+   ---------------------------- */
+@media (max-width: 768px) {
+  nav a {
+    margin: 0 1rem; /* tighter spacing */
+  }
+
+  .circle-logo {
+    margin-right: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    margin: 0; /* stacked links */
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
+
+/* Menu Section */
+
+.menu-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 5% 10%;
+}
+
+.menu-card {
+  background: #fff8f0;
+  border: 2px solid #5b3a29;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.rem;
+  color: #077655;
+  margin-bottom: 1rem;
+}
+
+.menu-card p {
+  font-family: Perpetua;
+  font-size: 1.2rem;
+  color: #5b3a29;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+/*End of Menu*/
+	
+	/*best seller*/
+	.best-sellers {
+  text-align: center;
+  padding: 2rem;
+}
+
+.best-sellers h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* up to 4 items */
+  gap: 1.5rem;
+}
+
+.item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item h3 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+.item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/*to fit in smaller screen*/
+
+@media (max-width: 768px) {
+  .items {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .items {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+	
+  </style>
+  
+</head>
+
+<body>
+
+ <nav>
+    <a href="#home">Home</a> |
+    <a href="#about">About</a> |
+    <a href="#menu">Menu</a> |
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <h1>
+    <span class="circle-logo">
+      <img src="KICKLogo1.png" alt="KICK Icon">
+    </span>
+    KICK COFFEE <br> & TEA </a>
+  </h1>
+  
+ <a class = "tagline">
+ 
+ <i>Bold flavors. Chill vibes. Just the right kick.</i>
+ 
+ </a>
+  
+ <a class = "Menu" href = "VMenu" style = "margin: 80px 0px 0px 0px;">
+ 
+ | View Menu |
+ 
+ </a>
+  
+  <section class="menu-section">
+  <div class="menu-card">
+    <h2>☕ Hot Brewed Beverages</h2>
+    <p>Rich, bold, and freshly prepared to warm your day.</p>
+  </div>
+
+  <div class="menu-card">
+    <h2>🧋 Cold Brewed Beverages</h2>
+    <p>Smooth, refreshing, and brewed to perfection over time.</p>
+  </div>
+
+  <div class="menu-card">
+    <h2>🥤 Frapped Beverages</h2>
+    <p>Blended icy goodness for the perfect chill treat.</p>
+  </div>
+
+  <div class="menu-card">
+    <h2>🍔 Savory Bites</h2>
+    <p>Delicious snacks and meals to pair with every sip.</p>
+  </div>
+</section>
+
+  <section class="best-sellers">
+  <h2>Best Sellers</h2>
+  <div class="items">
+    
+    <div class="item">
+      <img src="drink1.jpg" alt="Best Seller 1">
+      <h3>Milk Tea</h3>
+      <p>$3.50</p>
+    </div>
+
+    <div class="item">
+      <img src="drink2.jpg" alt="Best Seller 2">
+      <h3>Matcha Latte</h3>
+      <p>$4.00</p>
+    </div>
+
+    <div class="item">
+      <img src="drink3.jpg" alt="Best Seller 3">
+      <h3>Caramel Frappe</h3>
+      <p>$4.50</p>
+    </div>
+
+    <div class="item">
+      <img src="drink4.jpg" alt="Best Seller 4">
+      <h3>Classic Coffee</h3>
+      <p>$3.00</p>
+    </div>
+
+  </div>
+</section>
+  
+</body>
+</html>
