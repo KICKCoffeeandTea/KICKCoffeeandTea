@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KICK Contact</title>
+  <link rel="icon" href="Images/KICKLogo.png">
+
+  <style>
+    /* 🌿 GLOBAL STYLE */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background:
+        linear-gradient(to bottom, rgba(245,225,193,0.2) 60%, rgba(245,225,193,1)),
+        url("Images/OutsidePers.webp") no-repeat center top / cover,
+        url("Images/WarmCream.png") repeat center;
+    }
+
+    /* 🔗 NAVIGATION BAR */
+    nav {
+      background: #077655;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    nav a {
+      color: #fff;
+      margin: 0 8rem;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #F5E1C1;
+      text-shadow: 0 0 8px rgba(245,225,193,0.8);
+    }
+
+    /* 🏷 TITLE */
+    h1 {
+      margin-top: 5%;
+      text-align: center;
+      font-size: clamp(2rem, 8vw, 6rem);
+      color: #077655;
+      -webkit-text-stroke: 1.25px #5b3a29;
+      text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+    }
+
+    /* 🟢 CIRCLE LOGO */
+    .circle-logo {
+      width: clamp(80px,12vw,160px);
+      height: clamp(80px,12vw,160px);
+      border: 3px solid #5b3a29;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 2.5%;
+      vertical-align: middle;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    .circle-logo img {
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+    }
+
+    /* 📞 CONTACT SECTION */
+    .contact, .map {
+      padding: 60px 10%;
+      text-align: center;
+    }
+    .contact h2, .map h2 {
+      font-size: 2rem;
+      color: #2c5530;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .contact-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .contact-box h3 {
+      color: #077655;
+      margin-bottom: 10px;
+    }
+    .contact-box p {
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* 📱 SOCIAL ICONS */
+    .social-icons a {
+      margin: 0 10px;
+      transition: .3s;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+
+    /* 🗺 MAP STYLES */
+    .map-container {
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+    }
+
+    /* 📃 TERMS SECTION */
+    header.terms {
+      background: rgba(7,118,85,0.9);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    header.terms h1 {
+      margin: 0;
+      color: white;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    }
+    header.terms p {
+      margin-top: 0.5rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      line-height: 1.7;
+      animation: fadeIn 0.7s ease-in;
+    }
+    main h2 {
+      color: #077655;
+      margin-top: 2rem;
+      border-left: 5px solid #2c5530;
+      padding-left: 10px;
+    }
+    main p, main ul {
+      margin-bottom: 1rem;
+    }
+    main ul {
+      margin-left: 1.5rem;
+      list-style: circle;
+    }
+
+    /* 🌀 ANIMATION */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 📱 RESPONSIVE */
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      nav a { margin: 0 1.5rem; font-size: 1rem; }
+    }
+
+    /* ⚡ FOOTER */
+    footer {
+      background: #2c5530;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: .9rem;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔗 NAVIGATION -->
+  <nav>
+    <a href="Index.html">Home</a> |
+    <a href="About.html">About</a> |
+    <a href="Menu.html">Menu</a> |
+    <a href="Contact.html" target="_blank">Contact</a>
+  </nav>
+
+  <!-- 🏷 TITLE -->
+  <h1>
+    <span class="circle-logo">
+      <img src="Images/KICKLogo1.png" alt="KICK Icon">
+    </span>
+    Get In Touch
+  </h1>
+
+  <!-- 📞 CONTACT -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+
+      <div class="contact-box">
+        <h3>📍 Address</h3>
+        <p>V. Basit St. Brgy VIII, Daet, Camarines Norte</p>
+        <br>
+        <p>Houseware Plaza Supermarket<br>Lag-on, Daet, Camarines Norte<br>Mon–Sun 9:00 AM–7:30 PM</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>🕒 Operating Hours</h3>
+        <p>Mon–Fri: 10am – 9pm<br>Sat–Sun: 11am – 10pm</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>📞 Contact</h3>
+        <p>Phone: 090267375425<br>Email: kickmilktea@gmail.com</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>📱 Social Media</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/kickcoffeetea" target="_blank"><img src="Images/FBLogo.webp" alt="Facebook"></a>
+          <a href="https://www.instagram.com/kickcoffeetea" target="_blank"><img src="Images/Insta.webp" alt="Instagram"></a>
+          <a href="https://x.com/KICKcoffeetea" target="_blank"><img src="Images/Twitter.png" alt="Twitter"></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 🗺 MAPS -->
+  <section class="map">
+    <h2>📍 KICK Coffee & Tea - Daet</h2>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.3819919336593!2d122.95500772992614!3d14.113618862916233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3398ae598d1c18df%3A0xbc098dc4b3099d1e!2sKICK%20Coffee%20%26%20Tea!5e0!3m2!1sen!2sph!4v1759492180904!5m2!1sen!2sph" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="map">
+    <h2>📍 KICK Coffee & Tea - Houseware Plaza</h2>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.2684160014114!2d122.94332439678956!3d14.120306000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3398ae520d60ef2b%3A0x5780a7d7f394575a!2sKICK%20Milk%20Tea%20%26%20Coffee!5e0!3m2!1sen!2sph!4v1759492239007!5m2!1sen!2sph" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- 📃 TERMS -->
+  <header class="terms">
+    <h1>Terms of Service & Privacy Policy</h1>
+    <p>Last Updated: October 2025</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Overview</h2>
+      <p>Welcome to <strong>KICK Milk Tea & Coffee</strong>. By using this site, you agree to our Terms of Service and Privacy Policy.</p>
+    </section>
+
+    <section>
+      <h2>2. Use of Website</h2>
+      <ul>
+        <li>Do not post offensive or misleading content.</li>
+        <li>Do not attempt to hack or misuse this site.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Intellectual Property</h2>
+      <p>All materials are owned by <strong>KICK Milk Tea & Coffee</strong> and protected by copyright law.</p>
+    </section>
+
+    <section>
+      <h2>4. Product & Service Info</h2>
+      <p>Details may change without notice. Follow our official pages for updates.</p>
+    </section>
+
+    <section>
+      <h2>5. Privacy Policy</h2>
+      <ul>
+        <li><strong>Information We Collect:</strong> Contact details submitted through forms or messages.</li>
+        <li><strong>Usage:</strong> To respond to inquiries and improve the website.</li>
+        <li><strong>Cookies:</strong> Used for analytics; can be disabled in your browser.</li>
+        <li><strong>Data Security:</strong> Basic measures are in place to protect your data.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Third-Party Links</h2>
+      <p>We may link to social media or other external sites. Review their own privacy policies.</p>
+    </section>
+
+    <section>
+      <h2>7. Children’s Privacy</h2>
+      <p>We do not intentionally collect data from children under 13. If discovered, it will be deleted immediately.</p>
+    </section>
+
+    <section>
+      <h2>8. Policy Updates</h2>
+      <p>We may update this policy anytime. Check back periodically for changes.</p>
+    </section>
+
+    <section>
+      <h2>9. Contact Us</h2>
+      <p><strong>Email:</strong> <a href="mailto:kickmilktea@gmail.com">kickmilktea@gmail.com</a><br>
+         <strong>Phone:</strong> 090267375425<br>
+         <strong>Address:</strong> V. Basit St. Brgy VIII, Daet, Camarines Norte</p>
+    </section>
+  </main>
+
+  <!-- ⚡ FOOTER -->
+  <footer>
+    &copy; 2025 KICK Milk Tea & Coffee. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
+
+
+

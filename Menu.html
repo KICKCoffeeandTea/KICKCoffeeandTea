@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KICK Menu</title>
+  <link rel="icon" href="Images/KICKLogo.png">
+
+  <style>
+    /* 🌿 GLOBAL STYLE */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background:
+        linear-gradient(to bottom, rgba(245,225,193,0.2) 60%, rgba(245,225,193,1)),
+        url("Images/EntrancePic.webp") no-repeat center top / cover,
+        url("Images/WarmCream.png") repeat center;
+    }
+    /* 🔗 NAVIGATION BAR */
+    nav {
+      background: #077655;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    nav a {
+      color: #fff;
+      margin: 0 8rem;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #F5E1C1;
+      text-shadow: 0 0 8px rgba(245,225,193,0.8);
+    }
+
+   /* ===========================
+     🏷 WEBSITE TITLE + LOGO
+  ============================ */
+  h1 {
+    margin-top: 5%;
+    font-size: clamp(2rem, 8vw, 6rem);
+    text-align: center;
+    color: #077655;
+    -webkit-text-stroke: 1.25px #5b3a29;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+    line-height: 1.2;
+  }
+
+  /* Circle Logo beside title */
+  .circle-logo {
+    width: clamp(80px, 12vw, 160px);
+    height: clamp(80px, 12vw, 160px);
+    border: 3px solid #5b3a29;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+    vertical-align: middle;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+
+  .circle-logo img {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+  }
+
+    /* 🧃 MENU GRID CONTAINER */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* 🍽 Second row (3 columns) */
+    .menu-grid.bottom {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* 🍃 CARD STYLE */
+    .menu-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease;
+      opacity: 1;
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 3px solid #f5e1c1;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(7,118,85,0.4);
+    }
+
+    .menu-card h2 {
+      background: #f5e1c1;
+      color: #2c5530;
+      padding: 1rem;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    /* 📱 RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-grid.bottom {
+        grid-template-columns: 1fr;
+      }
+      nav a {
+        margin: 0 1rem;
+      }
+    }
+
+    /* ⚡ FOOTER SECTION */
+    .footer {
+      background: #2c5530;
+      color: white;
+      text-align: center;
+      padding: 20px 5px;
+    }
+
+    .footer .logo img {
+      height: 100px;
+      margin-bottom: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .social-icons img {
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      background: white;
+      padding: 10px;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+
+    .copyright {
+      font-size: 14px;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+     /* ===========================
+     ✨ TAGLINES & MENU LINK
+  ============================ */
+  .tagline {
+    text-align: center;
+    font-family: 'Perpetua', serif;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+    margin: 5% auto;
+    padding: 0 5%;
+    border-radius: 8px;
+     background:  #077655;
+  }
+  
+  </style>
+</head>
+<body>
+
+  <!-- 🔗 NAVIGATION -->
+  <nav>
+    <a href="Index.html">Home</a> |
+    <a href="About.html">About</a> |
+    <a href="Menu.html">Menu</a> |
+    <a href="Contact.html" target="_blank">Contact</a>
+  </nav>
+
+   <!-- 🏷 TITLE + LOGO -->
+  <h1>
+    <span class="circle-logo">
+      <img src="Images/KICKLogo1.png" alt="KICK Icon">
+    </span>
+    Our Menu
+  </h1>
+
+  <!-- ✨ TAGLINE -->
+  <p class="tagline"><i>Milk teas, coffee, fruit blends, and more — handcrafted for your perfect sip.</i></p>
+
+
+  <!-- ☕ FIRST ROW (2 ITEMS) -->
+  <div class="menu-grid">
+    <div class="menu-card">
+      <img src="Images/CoffeeFrappeMenu.jpg" alt="Coffee Frappe Menu">
+      <h2>☕ Coffee Frappe</h2>
+    </div>
+    <div class="menu-card">
+      <img src="Images/ColdBrewMenu.jpg" alt="Cold Brew Menu">
+      <h2>🧊 Cold Brew</h2>
+    </div>
+  </div>
+
+  <!-- 🍽 SECOND ROW (3 ITEMS) -->
+  <div class="menu-grid bottom">
+    <div class="menu-card">
+      <img src="Images/KoreanFriedChicken.jpg" alt="Korean Fried Chicken Menu">
+      <h2>🍗 Korean Fried Chicken</h2>
+    </div>
+    <div class="menu-card">
+      <img src="Images/MilkTeaMenu.jpg" alt="Milk Tea Menu">
+      <h2>🧋 Milk Tea</h2>
+    </div>
+    <div class="menu-card">
+      <img src="Images/StarterMenu.jpg" alt="Starter Menu">
+      <h2>🍟 Starters & Snacks</h2>
+    </div>
+  </div>
+
+  <!-- ⚡ FOOTER -->
+  <footer class="footer">
+    <div class="logo">
+      <img src="Images/KICKLogo1.png" alt="KICK Logo">
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/kickcoffeetea" target="_blank"><img src="Images/FBLogo.webp" alt="Facebook"></a>
+      <a href="https://www.instagram.com/kickcoffeetea" target="_blank"><img src="Images/Insta.webp" alt="Instagram"></a>
+      <a href="https://x.com/KICKcoffeetea" target="_blank"><img src="Images/twitter.png" alt="Twitter"></a>
+    </div>
+
+    <div class="copyright">
+      &copy; 2025 KICK Milk Tea & Coffee. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
