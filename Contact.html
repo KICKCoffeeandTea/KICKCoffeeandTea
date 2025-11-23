@@ -20,26 +20,83 @@
     }
 
     /* 🔗 NAVIGATION BAR */
-    nav {
-      background: #077655;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    nav a {
-      color: #fff;
-      margin: 0 8rem;
-      font-size: clamp(1rem, 2vw, 1.4rem);
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #F5E1C1;
-      text-shadow: 0 0 8px rgba(245,225,193,0.8);
-    }
+    /* =============== NAVBAR =============== */
+.navbar {
+  background: #077655;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.nav-brand {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Desktop Menu */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #F5E1C1;
+  text-shadow: 0 0 8px rgba(245,225,193,0.8);
+}
+
+/* Hamburger Icon */
+.nav-toggle {
+  font-size: 2rem;
+  color: white;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+/* =============== MOBILE STYLES =============== */
+@media (max-width: 768px) {
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #077655;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
 
     /* 🏷 TITLE */
     h1 {
@@ -215,12 +272,21 @@
 <body>
 
   <!-- 🔗 NAVIGATION -->
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="About.html">About</a> |
-    <a href="Menu.html">Menu</a> |
-    <a href="Contact.html" target="_blank">Contact</a>
-  </nav>
+ <nav class="navbar">
+  <div class="nav-brand">KICK</div>
+
+  <button class="nav-toggle" id="navToggle">
+    ☰
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Menu.html">Menu</a></li>
+    <li><a href="Contact.html" target="_blank">Contact</a></li>
+  </ul>
+</nav>
+
 
   <!-- 🏷 TITLE -->
   <h1>
@@ -346,6 +412,16 @@
   <footer>
     &copy; 2025 KICK Milk Tea & Coffee. All Rights Reserved.
   </footer>
+
+<script>
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
 
 </body>
 </html>

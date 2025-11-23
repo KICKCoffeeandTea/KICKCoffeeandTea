@@ -23,28 +23,85 @@
  /* =====================================
      🔗 NAVIGATION BAR
   ====================================== */
-  nav {
+ /* =============== NAVBAR =============== */
+.navbar {
+  background: #077655;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-brand {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Desktop Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #F5E1C1;
+  text-shadow: 0 0 8px rgba(245,225,193,0.8);
+}
+
+/* Hamburger Button */
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* =============== MOBILE =============== */
+@media (max-width: 768px) {
+
+  /* Show hamburger */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Hide links by default */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
     background: #077655;
-    padding: 1rem;
+    padding: 1rem 0;
+    gap: 1.5rem;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   }
 
-  nav a {
-    color: white;
-    margin: 0 8rem;
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    text-decoration: none;
-    transition: 0.3s;
+  /* Show when activated */
+  .nav-links.active {
+    display: flex;
   }
-
-  nav a:hover {
-    color: #F5E1C1;
-    text-shadow: 0 0 8px rgba(245,225,193,0.8);
-  }
+}
 
   /* ===========================
      🏷 WEBSITE TITLE + LOGO
@@ -164,7 +221,7 @@
     text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
     margin-bottom: 1.5rem;
     border-radius: 8px;
-     background: #077655;
+    background: #077655;
   }
 
   .items {
@@ -238,31 +295,109 @@
     opacity: 0.9;
   }
 
-  /* ===========================
-     📱 RESPONSIVE DESIGN
-  ============================ */
+  /* ========================================
+     📱 MOBILE & TABLET RESPONSIVENESS FIXES
+  ========================================= */
+
+  /* Tablet */
   @media (max-width: 768px) {
+
+    nav {
+      padding: 0.8rem;
+    }
+
     nav a {
       margin: 0 1rem;
-      display: inline-block;
+      font-size: 1rem;
     }
+
     h1 {
-      font-size: clamp(2rem, 10vw, 4rem);
+      font-size: 2.8rem;
+      margin-top: 10%;
+      line-height: 1.1;
+    }
+
+    .circle-logo {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 10px;
+    }
+
+    .menu-section {
+      padding: 10% 5%;
+      gap: 1.5rem;
+    }
+
+    .item img {
+      height: auto;
+    }
+
+    .footer .logo img {
+      height: 70px;
+    }
+
+    .social-icons img {
+      height: 22px;
+      width: 22px;
+      padding: 6px;
     }
   }
 
+  /* Mobile */
   @media (max-width: 480px) {
+
     nav {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.4rem;
+      padding: 0.6rem;
     }
+
     nav a {
+      font-size: 1.05rem;
       margin: 0;
     }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .circle-logo {
+      width: 70px;
+      height: 70px;
+    }
+
     .tagline {
-      font-size: 1.2rem;
-      padding: 0 10px;
+      font-size: 1rem;
+      padding: 6px 14px;
+      margin-bottom: 25px;
+    }
+
+    .items {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .menu-card {
+      padding: 1.2rem;
+    }
+
+    .footer {
+      padding: 15px 5px;
+    }
+
+    .footer .logo img {
+      height: 55px;
+    }
+
+    .social-icons img {
+      height: 18px;
+      width: 18px;
+      padding: 5px;
+    }
+
+    .copyright {
+      font-size: 12px;
     }
   }
   </style>
@@ -271,12 +406,20 @@
 <body>
 
   <!-- 🔗 NAVIGATION -->
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="About.html">About</a> |
-    <a href="Menu.html">Menu</a> |
-    <a href="Contact.html" target="_blank">Contact</a>
-  </nav>
+  <nav class="navbar">
+  <div class="nav-brand">KICK</div>
+
+  <button class="nav-toggle" id="navToggle">
+    ☰
+  </button>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Menu.html">Menu</a></li>
+    <li><a href="Contact.html" target="_blank">Contact</a></li>
+  </ul>
+</nav>
 
   <!-- 🏷 TITLE + LOGO -->
   <h1>
@@ -287,9 +430,9 @@
   </h1>
 
   <!-- ✨ TAGLINE -->
-   <div class="tagline-flex-container">
-  <p class="tagline"><i>Bold flavors. Chill vibes. Just the right kick.</i></p>
-</div>
+  <div class="tagline-flex-container">
+    <p class="tagline"><i>Bold flavors. Chill vibes. Just the right kick.</i></p>
+  </div>
 
   <!-- 🍽 MENU SECTION -->
   <section class="menu-section" id="menu">
@@ -341,9 +484,9 @@
   </section>
 
   <!-- ✨ SECOND TAGLINE -->
-   <div class="tagline-flex-container">
-  <p class="tagline"><i>“Every sip starts with a kick.”</i></p>
-</div>
+  <div class="tagline-flex-container">
+    <p class="tagline"><i>“Every sip starts with a kick.”</i></p>
+  </div>
 
   <!-- 🦶 FOOTER -->
   <footer class="footer">
@@ -368,7 +511,17 @@
     </div>
   </footer>
 
+<script>
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
 </body>
 </html>
+
 
 
